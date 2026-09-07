@@ -1,0 +1,104 @@
+# The authentic mid-2000s recipe, reconstructed from Paint Shop Pro and Jasc
+# Animation Shop tutorials of the period. Every parameter is documented in
+# default.toml.
+#
+# What sets it apart from the other presets:
+#
+# 1. The `speck` sprite instead of `dot`: a hard pixel with no antialiasing.
+#    Glitter back then was a flood fill with a noise tile in an indexed
+#    palette — a pixel is either fully lit or not, there were no midtones to be
+#    had. Soft gaussian dots look modern and, against this, read as mush.
+#
+# 2. The outline. Glitter-text tutorials repeat the same instruction over and
+#    over: Selections > Expand by one pixel, "it looks best when you have a
+#    border". What sparkles is a filled region with a hard bright edge, not a
+#    scatter of dots on its own.
+#
+# 3. Fast, coarse twinkling. There were three tiles, cycled at 5 to 9 frames
+#    per second. Hence phase_slots = 3 and high harmonics: the result is that
+#    jittery shimmer rather than a smooth breathing.
+#
+# 4. No soft knee and little headroom: 255 means 255.
+
+frames = 24
+fps = 9
+phase_slots = 3
+seed = 0
+
+sweep_base_gain = 0.22
+sweep_glitter_gain = 0.80
+highlight_knee = 245.0  # nearly hard clipping: there were no midtones back then
+headroom = 0.35         # weaker than usual too; glitter climbed onto bright areas back then
+
+[[sweep]]
+angle = 30
+bands = 2
+passes = 1
+width = 0.05
+strength = 0.9
+
+# The outline itself, around the glittered regions.
+[contour]
+strength = 0.85
+threshold = 0.50
+width = 1
+harmonics = [4, 6]
+colors = ["#ffffff", "#fff8d0", "#ffe0f8"]
+
+[grade]
+saturation = 0.12
+contrast = 0.10
+hue = 3.0
+harmonic = 1
+
+[flash]
+strength = 0.30
+frames = 2
+at = 0.5
+white = 0.0
+
+[density]
+luma = 0.30
+luma_gamma = 1.7
+saturation = 0.28
+edges = 0.30       # higher than usual: glitter gathers along the borders
+text = 0.30
+protect_skin = 0.85
+floor = 0.04
+
+[[density.hue_band]]
+center = 330
+width = 40
+weight = 0.55
+
+[[density.hue_band]]
+center = 48
+width = 25
+weight = 0.45
+
+[system.pixels]
+count = 34000
+sprite = "speck"
+size_range = [1, 2]
+gain = 1.0
+density_gamma = 1.4
+harmonics = [4, 6, 8]
+colors = ["#ffffff", "#fff2b0", "#ffd6f5", "#c9f0ff", "#ffffff"]
+
+[system.chunks]
+count = 3000
+sprite = "speck"
+size_range = [2, 3]
+gain = 0.9
+density_gamma = 0.7
+harmonics = [2, 3]
+colors = ["#ffffff", "#ffe27a", "#ff9ee0"]
+
+[system.stars]
+count = 700
+sprite = "star4"
+size_range = [13, 23]
+gain = 0.9
+density_gamma = 2.2
+harmonics = [2, 4]
+colors = ["#ffffff", "#fff6c9"]

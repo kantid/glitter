@@ -1,0 +1,4 @@
+pillow>=10.0
+numpy>=1.26
+# Used by analyze.py: gaussian_filter, sobel, grey_opening, binary morphology.
+scipy>=1.11

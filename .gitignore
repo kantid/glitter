@@ -1,0 +1,33 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Local tool and editor state.
+.claude/
+.idea/
+.vscode/
+
+# Secrets. Nothing of the sort has ever been in this repository; these lines
+# are here so that stays true by default rather than by luck.
+.env
+.env.*
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+credentials*
+secrets*
+*.credentials.json
+
+# The very first GIF, the one that started this. 23 MB, and the project
+# reproduces it. Kept on disk but out of the repository — drop this line if
+# you want it tracked.
+glitter_max.gif
+
+# Render output in the root is scratch; in examples/ it is wanted.
+/*_glitter.gif
+/*_glitter.webp
+/*_preview.png
+/*_density.png

@@ -1,0 +1,60 @@
+# Restrained. For when the card is actually going to be sent to someone.
+# Fine dust and the occasional star, one slow sweep, no flash.
+# Every parameter is documented in default.toml.
+
+frames = 48
+fps = 20
+phase_slots = 4
+seed = 0
+
+sweep_base_gain = 0.18
+sweep_glitter_gain = 0.90
+highlight_knee = 215.0
+
+[[sweep]]
+angle = 40
+bands = 1
+passes = 1
+width = 0.07
+strength = 0.8
+
+[grade]
+saturation = 0.07
+contrast = 0.04
+hue = 2.0
+harmonic = 1
+
+[flash]
+strength = 0.0   # no flash
+
+[density]
+luma = 0.35
+luma_gamma = 2.4   # higher than usual: only the genuinely bright sparkles
+saturation = 0.20
+edges = 0.15
+text = 0.12        # barely touch lettering so it stays crisp
+protect_skin = 1.0 # leave skin completely alone
+floor = 0.01
+
+[[density.hue_band]]
+center = 330
+width = 30
+weight = 0.35
+
+[system.fine]
+count = 9000
+sprite = "dot"
+size_range = [3, 5]
+gain = 0.7
+density_gamma = 1.5
+harmonics = [3, 4]
+colors = ["#ffffff", "#fff6d8", "#ffe8f6"]
+
+[system.stars]
+count = 180
+sprite = "star4"
+size_range = [15, 23]
+gain = 0.6
+density_gamma = 2.4
+harmonics = [1, 2]
+colors = ["#ffffff", "#fff2c4"]

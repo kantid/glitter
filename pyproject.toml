@@ -1,0 +1,26 @@
+[project]
+name = "glitter"
+version = "0.1.0"
+description = "Turn any picture into a gloriously tacky sparkling card"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["pillow>=10.0", "numpy>=1.26", "scipy>=1.11"]
+keywords = ["glitter", "gif", "animation", "y2k", "greeting-card"]
+classifiers = [
+    "Environment :: Console",
+    "Programming Language :: Python :: 3",
+    "Topic :: Multimedia :: Graphics",
+]
+
+[project.scripts]
+glitter = "glitter.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["glitter"]
+
+[tool.setuptools.package-data]
+glitter = ["presets/*.toml"]

@@ -1,0 +1,126 @@
+# Everything at eleven. This preset is why the whole thing was built.
+# Every parameter is documented in default.toml.
+#
+# The flash here is strong but still WITHOUT a white strobe: the strobe is only
+# enabled by --flash-extreme, and it is dangerous for photosensitive viewers.
+#
+# Tuned for a dense, saturated source. On a pastel or low-contrast picture it
+# eats the structure — use `default` there.
+
+frames = 60
+fps = 20
+phase_slots = 6
+seed = 0
+
+sweep_base_gain = 0.42
+sweep_glitter_gain = 2.10
+highlight_knee = 195.0
+
+[[sweep]]
+angle = 35
+bands = 3
+passes = 2
+width = 0.055
+strength = 1.0
+
+[[sweep]]
+angle = -25
+bands = 5
+passes = 3
+width = 0.04
+strength = 0.7
+
+[[sweep]]
+angle = 80
+bands = 2
+passes = 1
+width = 0.06
+strength = 0.6
+
+[[sweep]]
+angle = 0
+bands = 1
+passes = 1
+width = 0.09
+strength = 0.5
+
+[grade]
+saturation = 0.28
+contrast = 0.16
+hue = 11.0
+harmonic = 2
+
+[flash]
+strength = 0.65
+frames = 3
+at = 0.5
+white = 0.0
+
+[density]
+luma = 0.30
+luma_gamma = 1.8   # lower than usual: everything sparkles
+saturation = 0.25
+edges = 0.28
+text = 0.30
+protect_skin = 0.75
+floor = 0.05       # the background sparkles properly too
+
+[[density.hue_band]]
+center = 330
+width = 45
+weight = 0.60
+
+[[density.hue_band]]
+center = 48
+width = 28
+weight = 0.50
+
+[[density.hue_band]]
+center = 190
+width = 30
+weight = 0.30
+
+[system.fine]
+count = 26000
+sprite = "dot"
+size_range = [3, 5]
+gain = 0.85
+density_gamma = 1.2
+harmonics = [3, 4, 5, 6]
+colors = ["#ffffff", "#fff2b0", "#ffd6f5", "#d9f4ff", "#e8ffd9"]
+
+[system.medium]
+count = 5500
+sprite = "dot"
+size_range = [7, 13]
+gain = 0.9
+density_gamma = 0.6
+harmonics = [1, 2]
+colors = ["#ffffff", "#ffe27a", "#ff9ee0", "#a8e8ff"]
+
+[system.stars]
+count = 1400
+sprite = "star4"
+size_range = [15, 29]
+gain = 0.95
+density_gamma = 1.8
+harmonics = [1, 2, 3]
+colors = ["#ffffff", "#fff6c9", "#ffd9f2", "#cdefff"]
+
+[system.star6]
+count = 450
+sprite = "star6"
+size_range = [19, 33]
+gain = 0.9
+density_gamma = 2.0
+harmonics = [2, 3]
+colors = ["#ffffff", "#fff2b0", "#ffc4ec"]
+
+[system.bigstars]
+count = 200
+sprite = "star8"
+size_range = [31, 51]
+gain = 0.9
+density_gamma = 2.4
+harmonics = [1, 2]
+colors = ["#ffffff", "#fff6c9"]
